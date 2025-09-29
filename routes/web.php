@@ -40,3 +40,5 @@ Route::get('/about', function () {
     return view('halaman-about');
 });
 
+//2019 ganti presiden
+
