@@ -35,7 +35,7 @@ Route::get('/about', function () {
     return view('halaman-about');
 });
 
-//hahahah
+//hahahaha
 Route::get('/about', function () {
     return view('halaman-about');
 });
