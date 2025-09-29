@@ -41,4 +41,5 @@ Route::get('/about', function () {
 });
 
 //2019 ganti presiden
+//2025 Prabow menang
 
