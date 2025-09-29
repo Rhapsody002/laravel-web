@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,4 @@ Route::get('/about', function () {
     return view('halaman-about');
 });
 
-//2019 ganti presiden
-//2025 Prabow menang
-
+Route::get('/home', [HomeController::class, 'index']);
