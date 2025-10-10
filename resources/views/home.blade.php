@@ -134,6 +134,7 @@
                         <a href="{{ route('pegawai.index') }}" class="btn btn-success w-100">Lihat Data Pegawai</a>
                     </div>
                 </div>
+                
             </div>
         </div>
 
