@@ -1,51 +1,34 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\controllers\MahasiswaController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
+// Halaman utama
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Router Selamat Datang Jika Router pcr
-Route::get('/pcr', function () {
-    return 'Selamat Datang Di Website Kampus PCR';
-});
+// Static routes
+Route::get('/pcr', fn() => 'Selamat Datang Di Website Kampus PCR');
+Route::get('/mahasiswa', fn() => 'Guten Morgen Studentin');
+Route::get('/about', fn() => view('halaman-about'));
 
-// Router  Jika Router mahasiswa
-Route::get('/mahasiswa', function () {
-    return 'Guten Morgen Studentin';
-});
+// Parameter routes
+Route::get('/nama/{param1}', fn($param1) => 'Nama Saya: ' . $param1);
+Route::get('/nim/{param1?}', fn($param1 = '') => 'Nim Saya: ' . $param1);
 
-//Router Yang Menggunakan Parameter
-Route::get('/nama/{param1}', function ($param1) {
-    return 'Nama Saya: ' .$param1;
-});
-
-//Router Parameter Bersifat Required
-Route::get('/nim/{param1?}', function ($param1 = ''){
-    return 'Nim Saya: ' .$param1;
-});
-
-//Route Mengarah ke MahasiswaController dan Function show
+// Controller routes
 Route::get('/mahasiswa/{param1}', [MahasiswaController::class, 'show']);
+Route::post('/question/store', [QuestionController::class, 'store'])->name('question.store');
 
-//Router View halaman about
-Route::get('/about', function () {
-    return view('halaman-about');
-});
+// Auth routes
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.process');
 
-//hahahaha
-Route::get('/about', function () {
-    return view('halaman-about');
-});
+// Home page (setelah login)
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [HomeController::class, 'index']);
-
-
-Route::post('question/store', [QuestionController::class, 'store'])
-		->name('question.store');
-
-
+Route::get('/pegawai', [\App\Http\Controllers\PegawaiController::class, 'index'])->name('pegawai.index');

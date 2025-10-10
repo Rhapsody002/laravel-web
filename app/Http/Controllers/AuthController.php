@@ -11,25 +11,29 @@ class AuthController extends Controller
      */
     public function index()
     {
-        $data = [
-            'Nama'              => 'Violet',
-            'gmail'             => 'violet@gmail.com',
-            'password'          => 'violet2006'
-            ];
-            return view('home', $data);
+        return view('login');
     }
 
     public function login(Request $request){
         $request->validate([
-            'nama'      => 'required|max:10',
-		    'email'     => ['required','email'],
-            'password'  => 'required|max:20'
+            'nama'      => 'required',
+            'password'  => 'required|min:3|regex:/[A-Z]/'
         ],[
             'nama.required' => 'Nama tidak boleh kosong',
-            'email.email' => 'Email tidak valid',
-            'password.requiredd' => 'paswordnya mana?'
+            'password.required' => 'Paswordnya mana?',
+            'password.min' => 'Passwordnya minimal 3 karakter',
+            'password.regex' => 'Password harus mengandung huruf kapital -_-'
         ]);
 
+        if ($request-> nama == 'Violet' && $request-> password === 'HIDup jokowi'){
+            return redirect()->route('home')->with([
+            'nama' => $request->nama,
+            'last_login' => now()->format('d M Y H:i:s')
+        ]);
+
+        }else{
+            return back()->withErrors(['login' => 'Username atau password salah.']);
+        }
 
     }
 

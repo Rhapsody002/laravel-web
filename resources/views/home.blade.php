@@ -60,9 +60,30 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Desain Modern</h5>
-                        <p class="card-text">Dibangun dengan Bootstrap 5 untuk memastikan tampilan yang bersih dan responsif di semua perangkat.</p>
+                        <h5 class="card-title">Login</h5>
+                        <form action="{{ url('/login') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control" name="nama" value="{{ old('nama') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </form>
+                        @if ($errors->any())
+                            <div class="alert alert-danger mt-3">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
+
                 </div>
             </div>
 
@@ -104,11 +125,13 @@
             </div>
 
             {{-- Fitur 3 --}}
+            {{-- Fitur 3 --}}
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Mudah Dikustomisasi</h5>
-                        <p class="card-text">Kode yang rapi dan terstruktur, memudahkan Anda untuk mengubah konten sesuai kebutuhan proyek.</p>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Informasi Pegawai</h5>
+                        <p class="card-text">Lihat data pribadi dan status akademik Anda secara lengkap.</p>
+                        <a href="{{ route('pegawai.index') }}" class="btn btn-success w-100">Lihat Data Pegawai</a>
                     </div>
                 </div>
             </div>
