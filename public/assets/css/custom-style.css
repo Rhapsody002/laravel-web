@@ -1,0 +1,14 @@
+.navbar-gila{
+    height: 150px;
+    /* weight: auto; */
+}
+@font-face {
+    font-family: 'Pacifico';
+    src: url('assets/fonts/Pacifico.ttf');
+}
+
+.font-perubahan{
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}

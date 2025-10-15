@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -33,7 +37,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kontak</a>
                     </li>
-                    <!-- daasdads -->
                 </ul>
             </div>
         </div>
@@ -45,11 +48,15 @@
         {{-- Hero Section / Jumbotron --}}
         <div class="p-5 mb-4 bg-light rounded-3 text-center">
             <div class="container-fluid py-5">
+                <img src="{{ asset('assets/images/gila.jpg') }}"class="navbar-gila"alt="gila" >
                 <h1 class="display-6 mb-2">{{$username}}</h1>
                 <p class="lead mb-0">{{$last_login}}</p>
-                <h1 class="display-5 fw-bold">Selamat Datang di Website Kami! 🚀</h1>
-                <p class="fs-4 col-md-8 mx-auto">Ini adalah halaman utama yang dibangun menggunakan Laravel Blade. Template ini responsif, modern, dan siap untuk Anda kembangkan lebih lanjut.</p>
-                <a href="#" class="btn btn-primary btn-lg mt-3">Pelajari Lebih Lanjut</a>
+                <div class="font-perubahan">
+                    <h1 class="display-5 fw-bold">Selamat Datang di Website Kami! 🚀</h1>
+                    <p class="fs-4 col-md-8 mx-auto">Ini adalah halaman utama yang dibangun menggunakan Laravel Blade. Template ini responsif, modern, dan siap untuk Anda kembangkan lebih lanjut.</p>
+                    <a href="#" class="btn btn-primary btn-lg mt-3">Pelajari Lebih Lanjut</a>
+                </div>
+
             </div>
         </div>
 
@@ -108,6 +115,11 @@
                                     <label class="form-label">Pertanyaan</label>
                                     <textarea class="form-control" rows="4" name="pertanyaan" value="{{old('pertanyaan')}}"></textarea>
                                 </div>
+                                @if (session('info'))
+                                    <div class="alert alert-info">
+                                        {!! session('info') !!}
+                                    </div>
+                                @endif
                                  @if ($errors->any())
                                     <div class="alert alert-danger">
                                         <ul>
@@ -126,6 +138,7 @@
             </div>
 
             {{-- Fitur 3 --}}
+            {{-- Fitur 3 --}}
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
@@ -134,7 +147,7 @@
                         <a href="{{ route('pegawai.index') }}" class="btn btn-success w-100">Lihat Data Pegawai</a>
                     </div>
                 </div>
-
+                
             </div>
         </div>
 

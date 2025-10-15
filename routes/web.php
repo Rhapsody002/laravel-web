@@ -24,9 +24,27 @@ Route::get('/nim/{param1?}', fn($param1 = '') => 'Nim Saya: ' . $param1);
 Route::get('/mahasiswa/{param1}', [MahasiswaController::class, 'show']);
 Route::post('/question/store', [QuestionController::class, 'store'])->name('question.store');
 
+
+//Router View halaman about
+Route::get('/about', function () {
+    return view('halaman-about');
+});
+
+//hahahaha
+Route::get('/about', function () {
+    return view('halaman-about');
+});
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+Route::post('question/store', [QuestionController::class, 'store'])
+		->name('question.store');
+
 // Auth routes
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.process');
+
 
 // Home page (setelah login)
 Route::get('/home', [HomeController::class, 'index'])->name('home');
