@@ -33,6 +33,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kontak</a>
                     </li>
+                    <!-- daasdads -->
                 </ul>
             </div>
         </div>
@@ -125,7 +126,6 @@
             </div>
 
             {{-- Fitur 3 --}}
-            {{-- Fitur 3 --}}
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center">
@@ -134,7 +134,7 @@
                         <a href="{{ route('pegawai.index') }}" class="btn btn-success w-100">Lihat Data Pegawai</a>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
