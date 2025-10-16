@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 // Halaman utama
@@ -50,3 +51,6 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.process');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/pegawai', [\App\Http\Controllers\PegawaiController::class, 'index'])->name('pegawai.index');
+
+//Router Dashboard Admin
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');

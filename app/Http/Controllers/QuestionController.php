@@ -47,7 +47,16 @@ class QuestionController extends Controller
 
 
         // return view('home-question-respon', $request);
-        // return redirect()->away('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+
+        // Redirect ke route yang memiliki alias 'home'
+    	// return redirect()->route('home');
+
+        //Redirect ke halaman sebelumnya
+	    // return redirect()->back();
+
+        // Redirect ke URL eksternal
+        // 
+        
         return redirect()->route('home')->with('info', 'Pertanyaan kamu telah dikirim, walaupun kami tidak peduli');
 
     }
