@@ -5,6 +5,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PelangganController;
 use Illuminate\Support\Facades\Route;
 
 // Halaman utama
@@ -54,3 +55,7 @@ Route::get('/pegawai', [\App\Http\Controllers\PegawaiController::class, 'index']
 
 //Router Dashboard Admin
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+//Router Pelanggan
+Route::resource('pelanggan', PelangganController::class);
+
