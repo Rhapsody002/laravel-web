@@ -11,16 +11,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+
+        // Alias Spatie Permission (WAJIB)
         $middleware->alias([
-            'role'               => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-            'permission'         => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
-            'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+            'role'               => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission'         => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
         ]);
-    })
-    
-    ->withMiddleware(function (Middleware $middleware): void {
-        //
+
+        // Tambahkan middleware lain di sini jika perlu
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
-    })->create();
+    })
+    ->create();
